@@ -22,7 +22,10 @@ jobs:
       - name: 安装依赖
         run: pnpm install
 
-      - name: 安装 wrangler（修复全局目录）
+      - name: 局部安装 wrangler
+        run: pnpm install wrangler
+      - name: 部署到 Cloudflare
+        run: npx wrangler deploy
         run: |
           pnpm setup
           export PATH="$HOME/.local/share/pnpm:$PATH"
