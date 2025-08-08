@@ -1,12 +1,24 @@
 name: 自动部署 Workers
 on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+    branches: [ "main" ]
   schedule:
     - cron: '0 0 * * *'
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+    branches: [ "main" ]
     steps:
       - name: 拉取代码
         uses: actions/checkout@v4
@@ -15,6 +27,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+    branches: [ "main" ]
 
       - name: 安装 pnpm
         run: npm install -g pnpm
