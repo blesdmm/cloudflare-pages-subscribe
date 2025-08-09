@@ -1,13 +1,16 @@
 name: Deploy to Cloudflare Pages
 on:
+  workflow_dispatch:
   push:
     branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
+  workflow_dispatch:
     steps:
       - name: Install pnpm
   version: "10.14.0"
+  workflow_dispatch:
         uses: pnpm/action-setup@v4
 
       - name: Checkout code
