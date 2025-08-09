@@ -21,7 +21,7 @@ jobs:
       # 无构建步骤请删除此行
       - name: 安装依赖并构建
         run: |
-          npm install
+          pnpm install
           npm run build
 
       - name: 部署到Cloudflare Pages
