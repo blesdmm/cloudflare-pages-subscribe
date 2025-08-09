@@ -22,5 +22,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: duya
+          projectName: duya-89
           directory: dist  # 构建输出目录
