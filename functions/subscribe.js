@@ -27,7 +27,7 @@ decodedContent = subContent; // 解码失败则返回原始内容
 return new Response(decodedContent, {
 headers: {
 'Content-Type': 'text/plain; charset=utf-8',
-'Content-Disposition': 'attachment; filename="subscription.txt"',
+'Content-Disposition': 'attachment; filename=subscription.txt',
 'Cache-Control': 'no-cache' // 禁止缓存，确保每次获取最新内容
 }
 });
