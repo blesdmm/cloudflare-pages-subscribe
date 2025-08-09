@@ -1,31 +1,26 @@
 name: Deploy to Cloudflare Pages
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # 手动触发
   push:
-    branches: [main]
+    branches: [main]  # main 分支推送触发
 jobs:
   build:
     runs-on: ubuntu-latest
-  workflow_dispatch:
     steps:
       - name: Install pnpm
-  version: "10.14.0"
-  workflow_dispatch:
         uses: pnpm/action-setup@v4
-
+        with:
+          version: "10.14.0"  # 你的 pnpm 版本
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Install dependencies
         run: pnpm install
-
       - name: Build project
-        run: npm run build
-
+        run: npm run build  # 假设是 npm 构建，按需改 pnpm run build
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
-          directory: dist
+          directory: dist  # 构建输出目录
