@@ -12,6 +12,6 @@ jobs:
         run: |
           curl -X POST \
             -H "Authorization: Bearer $UPDATE_TOKEN_SECRET" \
-            https://duya.blesdmm.pages.dev/update-token
+            https://duya-89.blesdmm.pages.dev/update-token
         env:
           UPDATE_TOKEN_SECRET: ${{ secrets.UPDATE_TOKEN_SECRET }}
