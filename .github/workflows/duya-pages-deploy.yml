@@ -1,0 +1,33 @@
+name: 部署 Pages 项目（duya）
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      # 纯静态文件（无package.json）请删除以下3行
+      - name: 安装Node环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 无构建步骤请删除此行
+      - name: 安装依赖并构建
+        run: |
+          npm install
+          npm run build
+
+      - name: 部署到Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: duya
+          directory: .  # 静态文件目录（纯静态填.，构建后填dist等）
