@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install pnpm
+  version: "10.14.0"
         uses: pnpm/action-setup@v4
 
       - name: Checkout code
